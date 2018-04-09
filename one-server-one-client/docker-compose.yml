@@ -1,0 +1,14 @@
+version: '3.5'
+services:
+
+  dhcp-server:
+    image: ermak/ipk-dhcp-server
+    container_name: dhcp-server
+    volumes:
+      - ./dhcpd.conf:/etc/dhcp/dhcpd.conf
+    network_mode: bridge
+
+  dhcp-client:
+    image: ermak/ipk-dhcp-client
+    container_name: dhcp-client
+    network_mode: bridge
